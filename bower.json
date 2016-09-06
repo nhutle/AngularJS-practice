@@ -1,0 +1,25 @@
+{
+  "name": "front-end-test",
+  "version": "1.0.0",
+  "homepage": "https://github.com/nhutle/front-end-test",
+  "authors": [
+    "nhutle <leminhnhut08t1@gmail.com>"
+  ],
+  "description": "ModeFair test",
+  "keywords": [
+    "front-end",
+    "test"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.6.3",
+    "bootstrap": "~3.3.7"
+  }
+}
