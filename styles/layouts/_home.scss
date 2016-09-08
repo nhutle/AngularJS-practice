@@ -1,24 +1,101 @@
 @media only screen and (min-width: 320px) {
-
+  .calendar-section {
+    width: 20%;
+  }
+  .posts,
+  .posts-detail {
+    width: 40%;
+  }
+  .calendar-picker {
+    .fc-calendar-container {
+      height: 200px;
+      padding: 0;
+    }
+    .fc-calendar {
+      .fc-head {
+        display: none;
+      }
+      .fc-body {
+        border-width: 0;
+        height: 100%;
+      }
+      .fc-row {
+        border-bottom-width: 0;
+        > div {
+          border-right-width: 0;
+          &.fc-today {
+            background-color: $white;
+            @include box-shadow(none);
+            .fc-date {
+              color: $black;
+              font-weight: bold;
+            }
+          }
+          > span {
+            &.fc-date {
+              color: #777;
+              font-size: 15px;
+            }
+            &.fc-emptydate {
+              color: #ccc;
+            }
+          }
+        }
+      }
+    }
+    .custom-header {
+      border-top-width: 0;
+      border-bottom-width: 0;
+      padding: 0;
+      height: auto;
+      h2 {
+        text-transform: none;
+        text-align: left;
+        color: #777;
+      }
+    }
+    .custom-calendar-wrap {
+      margin: 0;
+    }
+  }
+  .task-list {
+    h4 {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+  .task {
+    .media-left {
+      width: 20%;
+      a {
+        display: block;
+        img {
+          @include border-radius(50%);
+        }
+      }
+    }
+  }
+  .posts {
+    border-width: 0px 1px;
+    border-style: solid;
+    border-color: $border;
+    padding: 10px;
+  }
+  .post-source {
+    text-align: right;
+    font-size: 18px;
+    .fa.fa-twitter {
+      color: blue;
+    }
+  }
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 480px) {}
 
-}
+@media only screen and (min-width: 640px) {}
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 768px) {}
 
-}
+@media only screen and (min-width: 992px) {}
 
-@media only screen and (min-width: 768px) {
-
-}
-
-@media only screen and (min-width: 992px) {
-
-}
-
-@media only screen and (min-width: 1200px) {
-
-}
-
+@media only screen and (min-width: 1200px) {}

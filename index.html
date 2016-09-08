@@ -5,10 +5,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Frontend Angular</title>
+  <title>Frontend</title>
   <!-- Dependencies CSS -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/Calendario/css/calendar.css">
+  <!-- <link rel="stylesheet" href="bower_components/Calendario/css/demo.css"> -->
+  <link rel="stylesheet" href="bower_components/Calendario/css/custom_2.css">
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles/main.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,7 +33,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-            <i>+</i> campaign
+            <i class="fa fa-plus"></i> campaign
           </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse main-navbar" aria-expanded="false">
@@ -82,7 +85,8 @@
               </a>
             </li>
             <li class="date-indicator">
-              <a href="#">Wednesday April 6th</a>
+              <a href="#" id="custom_date">
+              </a>
             </li>
             <li>
               <a href="#">
@@ -101,19 +105,96 @@
       </div>
     </nav>
   </header>
-  <div>
-    <div class="calendar">
-
+  <div class="container-fluid">
+    <div class="pull-left calendar-section">
+      <div class="custom-calendar-wrap calendar-picker">
+        <div id="custom-inner" class="custom-inner">
+          <div class="custom-header clearfix">
+            <h2 id="custom_month">
+            </h2>
+          </div>
+          <div id="calendar" class="fc-calendar-container"></div>
+        </div>
+      </div>
+      <div class="separate task-list">
+        <h4 class="text-uppercase">today task</h4>
+        <ul class="list-unstyled">
+          <li class="media task clearfix">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-responsive" src="assets/images/alex.png" alt="...">
+              </a>
+            </div>
+            <div class="media-body">
+              <div>Alex Smith</div>
+              <div class="text-uppercase">
+                <b>complete</b>
+              </div>
+              <div>Add new copy to 8am post</div>
+            </div>
+          </li>
+          <li class="media task clearfix">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-responsive" src="assets/images/ann.png" alt="...">
+              </a>
+            </div>
+            <div class="media-body">
+              <div>Ann Beckham</div>
+              <div class="text-uppercase">
+                <b>complete</b>
+              </div>
+              <div>Change image crop</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="post">
-
+    <div class="posts pull-left">
+      <div class="post">
+        <div class="post-time">
+        </div>
+        <div class="post-content clearfix">
+          <div class="post-title pull-left">
+            <div>
+              <b>Note UK</b>
+            </div>
+            <div>
+              Approval
+            </div>
+          </div>
+          <div class="post-title pull-right">
+            <div>
+              <b>8:00 am</b>
+            </div>
+            <div class="post-source">
+              <i class="fa fa-twitter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="post-detail">
-
+    <div class="posts-detail pull-left">
     </div>
   </div>
   <!-- Main JS -->
   <script src="javascripts/main.min.js"></script>
+  <script src="bower_components/Calendario/js/jquery.calendario.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    var $calendar = $('#calendar'),
+      cal = $calendar.calendario({
+        onDayClick: function($el, data, dateProperties) {
+          console.log($el);
+          console.log(data);
+          console.log(dateProperties);
+        }
+      });
+
+    $('#custom_month').html([cal.getMonthName(), cal.getYear()].join(' '));
+    $('#custom_date').html([cal.getWeekdayname(), cal.getMonthName(), cal.getDate()].join(' '));
+  });
+  </script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>
 

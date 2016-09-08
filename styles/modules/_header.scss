@@ -11,17 +11,23 @@
     .navbar-brand {
       font-size: 15px;
     }
+    .navbar-right {
+      font-size: 17px;
+    }
   }
   .campaign {
-    border-right: 1px solid $header-border;
+    border-right: 1px solid $border;
     i {
-      border: 2px solid $header-border;
-      padding: 0 3px;
+      border: 2px solid $border;
+      padding: 2px 3px;
+      font-size: 10px;
+      top: -1px;
+      position: relative;
       @include border-radius(50%);
     }
   }
   .nav-setting {
-    border-left: 1px solid $header-border;
+    border-left: 1px solid $border;
   }
   .main-navbar {
     text-align: center;
@@ -48,7 +54,7 @@
     }
   }
   .today span {
-    border: 1px solid $header-border;
+    border: 1px solid $border;
     padding: 5px 10px;
   }
 }
