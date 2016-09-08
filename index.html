@@ -7,19 +7,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Frontend Angular</title>
   <!-- Dependencies CSS -->
-  <link rel="stylesheet" href="styles/lib.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles/main.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 
 <body>
-  <header class="container-fluid">
+  <header>
+    <nav class="navbar navbar-default main-nav">
+      <div class="container-fluid">
+        <div class="navbar-header campaign">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <i>+</i> campaign
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse main-navbar" aria-expanded="false">
+          <ul class="nav navbar-nav main-navigation">
+            <li>
+              <a href="#">year</a>
+            </li>
+            <li>
+              <a href="#">quarter</a>
+            </li>
+            <li>
+              <a href="#">month</a>
+            </li>
+            <li>
+              <a href="#">week</a>
+            </li>
+            <li class="active">
+              <a href="#">day</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right nav-setting">
+            <li>
+              <a href="#">
+                <i class="fa fa-cog"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <nav class="navbar navbar-default main-nav">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -29,23 +70,48 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">campaign</a>
+          <a class="navbar-brand today" href="#">
+            <span>today</span>
+          </a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
-          <ul class="nav navbar-nav main-navbar">
-            <li class="active"><a href="#">year</a></li>
-            <li><a href="#">quarter</a></li>
-            <li><a href="#">month</a></li>
-            <li><a href="#">week</a></li>
-            <li><a href="#">day</a></li>
+        <div id="navbar" class="navbar-collapse collapse main-navbar" aria-expanded="false">
+          <ul class="nav navbar-nav main-navigation">
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-left"></i>
+              </a>
+            </li>
+            <li class="date-indicator">
+              <a href="#">Wednesday April 6th</a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
           </ul>
-        </div>
-        <div class="navbar-setting">
-          <i class="fa fa-gag"></i>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                <i class="fa fa-filter"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
   </header>
+  <div>
+    <div class="calendar">
+
+    </div>
+    <div class="post">
+
+    </div>
+    <div class="post-detail">
+
+    </div>
+  </div>
   <!-- Main JS -->
   <script src="javascripts/main.min.js"></script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

@@ -1,25 +1,34 @@
 @media only screen and (min-width: 320px) {
   .main-nav {
     background-color: $white;
-    border-top: none;
-    border-right: 0;
     border-top-width: 0;
     border-left-width: 0;
     border-right-width: 0;
     text-transform: uppercase;
     font-weight: bold;
+    margin-bottom: 0;
+    @include border-radius(0);
     .navbar-brand {
       font-size: 15px;
     }
-    .navbar-header {
-      border-right: 1px solid $header-border;
+  }
+  .campaign {
+    border-right: 1px solid $header-border;
+    i {
+      border: 2px solid $header-border;
+      padding: 0 3px;
+      @include border-radius(50%);
     }
-    @include border-radius(0);
+  }
+  .nav-setting {
+    border-left: 1px solid $header-border;
   }
   .main-navbar {
-    margin: 0 auto;
     text-align: center;
+  }
+  .main-navigation {
     float: none;
+    display: inline-block;
     li {
       float: none;
       display: inline-block;
@@ -30,11 +39,17 @@
       }
     }
   }
-  .navbar-settings {
-    float: right;
-    border-left: 1px solid $header-border;
-    padding-left: 15px;
-    padding-right: 15px;
+  .date-indicator {
+    text-transform: none;
+    font-weight: normal;
+    font-size: 18px;
+    a {
+      cursor: default;
+    }
+  }
+  .today span {
+    border: 1px solid $header-border;
+    padding: 5px 10px;
   }
 }
 
