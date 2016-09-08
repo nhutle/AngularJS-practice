@@ -105,7 +105,7 @@ gulp.task('image', function() {
 
 
 // Default task
-gulp.task('default', ['sass', 'lint', 'scripts'], function() {
+gulp.task('default', ['sass', 'minify-css', 'lint', 'scripts'], function() {
   browserSync.init({
     server: {
       baseDir: "./"
@@ -118,7 +118,7 @@ gulp.task('default', ['sass', 'lint', 'scripts'], function() {
 });
 
 // Build task
-gulp.task('build', ['clean', 'copy', 'sass', 'lint', 'scripts'], function() {
+gulp.task('build', ['clean', 'copy', 'sass', 'minify-css', 'lint', 'scripts'], function() {
   flags.production = true;
 
   browserSync.init({
