@@ -2,10 +2,6 @@
   .calendar-section {
     width: 20%;
   }
-  .posts,
-  .posts-detail {
-    width: 40%;
-  }
   .calendar-picker {
     .fc-calendar-container {
       height: 200px;
@@ -37,7 +33,7 @@
               font-size: 15px;
             }
             &.fc-emptydate {
-              color: #ccc;
+              display: none;
             }
           }
         }
@@ -59,10 +55,14 @@
     }
   }
   .task-list {
+    margin-left: -15px;
     h4 {
       font-weight: bold;
       font-size: 14px;
     }
+  }
+  .task-list-wrapper {
+    padding-left: 15px;
   }
   .task {
     .media-left {
@@ -75,18 +75,107 @@
       }
     }
   }
+  .task-status {
+    text-transform: uppercase;
+    color: #92c86e;
+  }
   .posts {
+    width: 45%;
     border-width: 0px 1px;
     border-style: solid;
     border-color: $border;
-    padding: 10px;
+    padding: 20px;
+  }
+  .post {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    &.multiple-post .post-content {
+      width: 50%;
+      display: table-cell;
+    }
+    &:nth-of-type(2n+1) .post-content {
+      border-top-color: #9cc2cf;
+    }
+    &:nth-of-type(2n) .post-content {
+      border-top-color: #b5d89e;
+    }
+    + .post {
+      margin-top: 30px;
+    }
+    > div {
+      display: table-cell;
+    }
+  }
+  .timeline {
+    width: 7%;
+    border-left: 1px solid $border;
+  }
+  .start-time {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: #fff;
+    z-index: 9999;
+    height: 30px;
+    font-size: 12px;
+  }
+  .post-content {
+    border-style: solid;
+    border-color: $border;
+    border-width: 3px 1px 1px 1px;
+    .img-responsive {
+      margin: 0 auto;
+    }
+  }
+  .post-title {
+    padding: 5px 15px;
   }
   .post-source {
     text-align: right;
     font-size: 18px;
-    .fa.fa-twitter {
-      color: blue;
+    .fa {
+      color: #3B94D9;
     }
+  }
+  .posts-detail {
+    width: 35%;
+    padding: 10px 20px;
+    h4 {
+      font-weight: normal;
+    }
+  }
+  .outline-detail {
+    padding: 15px 0;
+    li + li {
+      padding-top: 10px;
+    }
+    .fa.fa-circle {
+      font-size: 10px;
+      margin-right: 5px;
+      position: relative;
+      top: -1px;
+    }
+  }
+  .outline-title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .live-title {
+    color: #b5d89e;
+  }
+  .image-title {
+    color: #f26a2a;
+  }
+  .outline-hashtag {
+    color: #337ab7;
+  }
+  .edit-post {
+    border: 2px solid $border;
+    padding: 5px 10px;
+    font-weight: bold;
+    background-color: $white;
   }
 }
 

@@ -9,7 +9,7 @@
     margin-bottom: 0;
     @include border-radius(0);
     .navbar-brand {
-      font-size: 15px;
+      font-size: 16px;
     }
     .navbar-right {
       font-size: 17px;
@@ -18,10 +18,10 @@
   .campaign {
     border-right: 1px solid $border;
     i {
-      border: 2px solid $border;
+      border: 2px solid;
       padding: 2px 3px;
       font-size: 10px;
-      top: -1px;
+      top: -2px;
       position: relative;
       @include border-radius(50%);
     }
@@ -35,11 +35,13 @@
   .main-navigation {
     float: none;
     display: inline-block;
+    font-size: 16px;
     li {
       float: none;
       display: inline-block;
       &.active a {
-        border-bottom: 2px solid;
+        color: #f26a2a !important;
+        border-bottom: 2px solid #f26a2a;
         padding-bottom: 13px;
         background-color: $white !important;
       }
@@ -56,6 +58,7 @@
   .today span {
     border: 1px solid $border;
     padding: 5px 10px;
+    background-color: #F9F9F9;
   }
 }
 

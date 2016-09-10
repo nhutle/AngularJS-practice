@@ -117,64 +117,174 @@
         </div>
       </div>
       <div class="separate task-list">
-        <h4 class="text-uppercase">today task</h4>
-        <ul class="list-unstyled">
-          <li class="media task clearfix">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object img-responsive" src="assets/images/alex.png" alt="...">
-              </a>
-            </div>
-            <div class="media-body">
-              <div>Alex Smith</div>
-              <div class="text-uppercase">
-                <b>complete</b>
+        <div class="task-list-wrapper">
+          <h4 class="text-uppercase">today task</h4>
+          <ul class="list-unstyled">
+            <li class="media task clearfix">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object img-responsive" src="assets/images/alex.png" alt="...">
+                </a>
               </div>
-              <div>Add new copy to 8am post</div>
-            </div>
-          </li>
-          <li class="media task clearfix">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object img-responsive" src="assets/images/ann.png" alt="...">
-              </a>
-            </div>
-            <div class="media-body">
-              <div>Ann Beckham</div>
-              <div class="text-uppercase">
-                <b>complete</b>
+              <div class="media-body">
+                <div>Alex Smith</div>
+                <div class="task-status">
+                  <b>complete</b>
+                </div>
+                <div>Add new copy to 8am post</div>
               </div>
-              <div>Change image crop</div>
-            </div>
-          </li>
-        </ul>
+            </li>
+            <li class="media task clearfix">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object img-responsive" src="assets/images/ann.png" alt="...">
+                </a>
+              </div>
+              <div class="media-body">
+                <div>Ann Beckham</div>
+                <div class="task-status">
+                  <b>complete</b>
+                </div>
+                <div>Change image crop</div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="posts pull-left">
       <div class="post">
-        <div class="post-time">
+        <div class="timeline">
         </div>
-        <div class="post-content clearfix">
-          <div class="post-title pull-left">
-            <div>
-              <b>Note UK</b>
+        <div class="start-time">8am</div>
+        <div class="post-content">
+          <div class="post-title clearfix">
+            <div class="pull-left">
+              <div>
+                <b>Note UK</b>
+              </div>
+              <div>
+                Approved
+              </div>
             </div>
-            <div>
-              Approval
+            <div class="pull-right">
+              <div>
+                <b>8:00am</b>
+              </div>
+              <div class="post-source">
+                <i class="fa fa-twitter"></i>
+              </div>
             </div>
           </div>
-          <div class="post-title pull-right">
-            <div>
-              <b>8:00 am</b>
+          <div>
+            <img class="img-responsive" src="assets/images/alex-post.jpg" alt="alex post">
+          </div>
+        </div>
+      </div>
+      <div class="post multiple-post">
+        <div class="timeline">
+        </div>
+        <div class="start-time">12pm</div>
+        <div>
+          <div class="post-content">
+            <div class="post-title clearfix">
+              <div class="pull-left">
+                <div>
+                  <b>Note UK</b>
+                </div>
+                <div>
+                  Draft
+                </div>
+              </div>
+              <div class="pull-right">
+                <div>
+                  <b>12:00pm</b>
+                </div>
+                <div class="post-source">
+                  <i class="fa fa-instagram"></i>
+                </div>
+              </div>
             </div>
-            <div class="post-source">
-              <i class="fa fa-twitter"></i>
+            <div>
+              <img class="img-responsive" src="assets/images/ann-post-1.jpg" alt="ann post">
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-title clearfix">
+              <div class="pull-left">
+                <div>
+                  <b>Note UK</b>
+                </div>
+                <div>
+                  Approved
+                </div>
+              </div>
+              <div class="pull-right">
+                <div>
+                  <b>12:00pm</b>
+                </div>
+                <div class="post-source">
+                  <i class="fa fa-instagram"></i>
+                </div>
+              </div>
+            </div>
+            <div>
+              <img class="img-responsive" src="assets/images/ann-post-2.jpg" alt="ann post">
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="posts-detail pull-left">
+      <h4>Post Details</h4>
+      <ul class="separate outline-detail list-unstyled">
+        <li>
+          <div class="outline-title live-title text-uppercase">live</div>
+          <div>Published on Wednesday 4/6 at 8:00am</div>
+        </li>
+        <li>
+          <div class="outline-title text-uppercase">copy</div>
+          <div>Nothing says launch party like  macaroons! If you're in LA stop by and check out new headphones.
+            <a class="outline-hashtag" target="_blank">#echolaunch</a>
+          </div>
+        </li>
+        <li>
+          <div class="outline-title text-uppercase">link</div>
+          <div>
+            <a href="#">bitly.com/echolaunch156948321</a>
+          </div>
+        </li>
+        <li>
+          <div class="outline-title text-uppercase">topic</div>
+          <div>
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            Speakers
+          </div>
+        </li>
+      </ul>
+      <ul class="separate outline-detail list-unstyled">
+        <li>
+          <div class="outline-title image-title">Image</div>
+        </li>
+        <li>
+          <div class="outline-title">File name</div>
+          <div>1569481321.jpg</div>
+        </li>
+        <li>
+          <div class="outline-title">Created by</div>
+          <div>Alex Smith - via Photographer</div>
+        </li>
+        <li>
+          <div class="outline-title">Total Usage</div>
+          <div>2 (last used November 13, 2015)</div>
+        </li>
+      </ul>
+      <div class="separate outline-detail">
+        <div class="text-uppercase outline-title">status - <span class="live-title">approved on 4/3</span></div>
+      </div>
+      <div class="separate outline-detail">
+        <button href="#" class="text-uppercase edit-post">edit post</button>
+      </div>
     </div>
   </div>
   <!-- Main JS -->
