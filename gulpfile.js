@@ -59,8 +59,8 @@ gulp.task('minify-css', function() {
 // Concatenate and Minify JS
 gulp.task('scripts', function() {
   return gulp.src([
-      'bower_components/jquery/dist/jquery.min.js',
-      'bower_components/bootstrap/dist/js/bootstrap.min.js',
+      // 'bower_components/jquery/dist/jquery.min.js',
+      // 'bower_components/bootstrap/dist/js/bootstrap.min.js',
       'javascripts/**/*.js',
       '!javascripts/main.min.js'
     ])
