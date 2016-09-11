@@ -42,10 +42,12 @@ gulp.task('sass', function() {
 
 
 // Minify CSS
-gulp.task('minify-css', function() {
+gulp.task('css', function() {
   return gulp.src([
       'bower_components/bootstrap/dist/css/bootstrap.min.css',
       'bower_components/font-awesome/css/font-awesome.min.css',
+      'bower_components/Calendario/css/calendar.css',
+      'bower_components/Calendario/css/custom_2.css'
     ])
     .pipe(concat('lib.css'))
     .pipe(sourcemaps.init())
@@ -59,29 +61,64 @@ gulp.task('minify-css', function() {
 // Concatenate and Minify JS
 gulp.task('scripts', function() {
   return gulp.src([
-      // 'bower_components/jquery/dist/jquery.min.js',
-      // 'bower_components/bootstrap/dist/js/bootstrap.min.js',
-      'javascripts/**/*.js',
-      '!javascripts/main.min.js'
+      'bower_components/jquery/dist/jquery.min.js',
+      'bower_components/bootstrap/dist/js/bootstrap.min.js',
+      'bower_components/Calendario/js/jquery.calendario.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-resource/angular-resource.min.js',
+      'bower_components/angular-route/angular-route.min.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'javascripts/app.js',
+      'javascripts/controllers/**/*.js',
+      'javascripts/services/**/*.js',
+      'javascripts/filters/**/*.js',
+      'javascripts/directives/**/*.js'
+    ])
+    .pipe(concat('main.min.js'))
+    .pipe(gulp.dest('javascripts'));
+});
+
+gulp.task('scripts-build', function() {
+  return gulp.src([
+      'bower_components/jquery/dist/jquery.min.js',
+      'bower_components/bootstrap/dist/js/bootstrap.min.js',
+      'bower_components/Calendario/js/jquery.calendario.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-resource/angular-resource.min.js',
+      'bower_components/angular-route/angular-route.min.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'javascripts/app.js',
+      'javascripts/controllers/**/*.js',
+      'javascripts/services/**/*.js',
+      'javascripts/filters/**/*.js',
+      'javascripts/directives/**/*.js'
     ])
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('dist/javascripts'))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(flags.production ? 'dist/javascripts' : 'javascripts'))
+    .pipe(gulp.dest('dist/javascripts'));
 });
 
 
 // Copy files
 gulp.task('copy', function() {
   // copy html
-  gulp.src('*.html')
+  gulp.src([
+    '*.html',
+    'views/*.*/*.html'
+  ])
     .pipe(gulp.dest('dist'));
 
   // copy fonts
-  gulp.src('assets/fonts/*.*')
+  gulp.src([
+      'assets/fonts/*.*',
+      'bower_components/bootstrap/fonts/*.*',
+      'bower_components/fontawesome/fonts/*.*'
+    ])
     .pipe(gulp.dest('dist/assets/fonts'));
 });
 
@@ -105,7 +142,7 @@ gulp.task('image', function() {
 
 
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'lint', 'scripts'], function() {
+gulp.task('default', ['sass', 'lint', 'scripts'], function() {
   browserSync.init({
     server: {
       baseDir: "./"
@@ -118,7 +155,7 @@ gulp.task('default', ['sass', 'minify-css', 'lint', 'scripts'], function() {
 });
 
 // Build task
-gulp.task('build', ['clean', 'copy', 'sass', 'minify-css', 'lint', 'scripts'], function() {
+gulp.task('build', ['clean', 'copy', 'sass', 'css', 'lint', 'scripts-build'], function() {
   flags.production = true;
 
   browserSync.init({
