@@ -6,17 +6,17 @@
     .controller('homeController', ['$scope',
       function($scope) {
         // calendario
-        var $calendar = $('#calendar'),
-          cal = $calendar.calendario({
-            onDayClick: function($el, data, dateProperties) {
-              $scope.$apply(function() {
-                $scope.selectedDate = [dateProperties.weekdayname, dateProperties.monthname, dateProperties.day].join(' ');
-              });
-            }
-          });
-''
-        $scope.selectedMonth = [cal.getMonthName(), cal.getYear()].join(' ');
-        $scope.selectedDate = [cal.getWeekdayname(), cal.getMonthName(), cal.getDate()].join(' ');
+//         var $calendar = $('#calendar'),
+//           cal = $calendar.calendario({
+//             onDayClick: function($el, data, dateProperties) {
+//               $scope.$apply(function() {
+//                 $scope.selectedDate = [dateProperties.weekdayname, dateProperties.monthname, dateProperties.day].join(' ');
+//               });
+//             }
+//           });
+// ''
+//         $scope.selectedMonth = [cal.getMonthName(), cal.getYear()].join(' ');
+//         $scope.selectedDate = [cal.getWeekdayname(), cal.getMonthName(), cal.getDate()].join(' ');
       }
     ]);
 })(angular);
