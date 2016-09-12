@@ -16,24 +16,13 @@
     .config(['$routeProvider',
       function($routeProvider) {
         $routeProvider
-          .when('/dates', {
-            controller: 'homeController',
-            templateUrl: 'views/home.html'
-          })
           .when('/dates/:dateId', {
             controller: 'homeController',
             templateUrl: 'views/home.html'
           })
-          .when('/tasks/:id', {
-            controller: 'homeController',
-            templateUrl: 'views/home.html'
-          })
           .otherwise({
-            redirectTo: '/tasks/1'
+            redirectTo: '/dates/' + new Date().toISOString().slice(0, 10)
           });
       }
     ]);
 })(angular);
-
-/// home ~ /task_id: first
-/dates/:dateId/tasks/:taskId
