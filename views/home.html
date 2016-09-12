@@ -49,7 +49,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand today" href="#">
+        <a class="navbar-brand today" href="#" ng-click="getTodayTasks()">
           <span>today</span>
         </a>
       </div>
@@ -87,176 +87,109 @@
         <div class="custom-header clearfix">
           <h2>{{ selectedMonth }}</h2>
         </div>
-        <div class="fc-calendar-container" calendario-directive ></div>
+        <div class="fc-calendar-container" calendario-directive selected-month="selectedMonth" selected-date="selectedDate" get-tasks-by-date="getTasksByDate(date)"></div>
       </div>
     </div>
     <div class="separate task-list">
-      <div class="task-list-wrapper">
+      <div class="col-xs-12">
         <h4 class="text-uppercase">today task</h4>
         <ul class="list-unstyled">
-          <li class="media task clearfix">
+          <a class="media task clearfix" ng-repeat="task in tasksByDate.tasks" ng-class="{ 'active': $first }" ng-href="#/tasks/{{ task.id }}">
             <div class="media-left">
-              <a href="#">
-                <img class="media-object img-responsive" src="assets/images/alex.png" alt="...">
-              </a>
+              <img class="media-object img-responsive" ng-src="{{ ::task.user.avatar }}" alt="{{ ::task.user.fullname }}">
             </div>
             <div class="media-body">
-              <div>Alex Smith</div>
+              <div> {{ ::task.user.fullname }}</div>
               <div class="task-status">
-                <b>complete</b>
+                <b>{{ ::task.user.task_completed }}</b>
               </div>
-              <div>Add new copy to 8am post</div>
+              <div>{{ ::task.user.comment }}</div>
             </div>
-          </li>
-          <li class="media task clearfix">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object img-responsive" src="assets/images/ann.png" alt="...">
-              </a>
-            </div>
-            <div class="media-body">
-              <div>Ann Beckham</div>
-              <div class="task-status">
-                <b>complete</b>
-              </div>
-              <div>Change image crop</div>
-            </div>
-          </li>
+          </a>
         </ul>
       </div>
     </div>
   </div>
-  <div class="posts pull-left">
-    <div class="post">
-      <div class="timeline">
-      </div>
-      <div class="start-time">8am</div>
-      <div class="post-content">
-        <div class="post-title clearfix">
-          <div class="pull-left">
-            <div>
-              <b>Note UK</b>
-            </div>
-            <div>
-              Approved
-            </div>
-          </div>
-          <div class="pull-right">
-            <div>
-              <b>8:00am</b>
-            </div>
-            <div class="post-source">
-              <i class="fa fa-twitter"></i>
-            </div>
-          </div>
+  <div class="pull-left posts-wrapper" ng-repeat="task in tasksByDate.tasks">
+    <div class="posts pull-left">
+      <div class="post" ng-repeat="post in task.posts">
+        <div class="timeline">
         </div>
-        <div>
-          <img class="img-responsive" src="assets/images/alex-post.jpg" alt="alex post">
+        <div class="start-time">{{ ::post.starting_time_short }}</div>
+        <div class="post-content-wrapper">
+          <div class="post-content" ng-repeat="post_item in post.post_items">
+            <div class="post-title clearfix">
+              <div class="pull-left">
+                <div>
+                  <b>{{ ::post_item.title }}</b>
+                </div>
+                <div>{{ ::post_item.status }}</div>
+              </div>
+              <div class="pull-right">
+                <div>
+                  <b>{{ ::post.starting_time }}</b>
+                </div>
+                <div class="post-source">
+                  <i class="fa {{ post_item.source === 'twitter' ? 'fa-twitter': 'fa-instagram' }}"></i>
+                </div>
+              </div>
+            </div>
+            <div>
+              <img class="img-responsive" ng-src="{{ ::post_item.image }}" alt="{{ ::task.user.fullname }} post">
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="post multiple-post">
-      <div class="timeline">
-      </div>
-      <div class="start-time">12pm</div>
-      <div>
-        <div class="post-content">
-          <div class="post-title clearfix">
-            <div class="pull-left">
-              <div>
-                <b>Note UK</b>
-              </div>
-              <div>
-                Draft
-              </div>
-            </div>
-            <div class="pull-right">
-              <div>
-                <b>12:00pm</b>
-              </div>
-              <div class="post-source">
-                <i class="fa fa-instagram"></i>
-              </div>
-            </div>
+    <div class="posts-detail pull-left">
+      <h4>Post Details</h4>
+      <ul class="separate outline-detail list-unstyled">
+        <li>
+          <div class="outline-title live-title text-uppercase">live</div>
+          <div>{{ task.info.live }}</div>
+        </li>
+        <li>
+          <div class="outline-title text-uppercase">copy</div>
+          <div>{{ task.info.copy }}
+            <a class="outline-hashtag" target="_blank">{{ task.infor.hashtag }}</a>
           </div>
+        </li>
+        <li>
+          <div class="outline-title text-uppercase">link</div>
           <div>
-            <img class="img-responsive" src="assets/images/ann-post-1.jpg" alt="ann post">
+            <a href="#">{{ task.info.link }}</a>
           </div>
-        </div>
-        <div class="post-content">
-          <div class="post-title clearfix">
-            <div class="pull-left">
-              <div>
-                <b>Note UK</b>
-              </div>
-              <div>
-                Approved
-              </div>
-            </div>
-            <div class="pull-right">
-              <div>
-                <b>12:00pm</b>
-              </div>
-              <div class="post-source">
-                <i class="fa fa-instagram"></i>
-              </div>
-            </div>
-          </div>
+        </li>
+        <li>
+          <div class="outline-title text-uppercase">topic</div>
           <div>
-            <img class="img-responsive" src="assets/images/ann-post-2.jpg" alt="ann post">
+            <i class="fa fa-circle" aria-hidden="true"></i> {{ task.info.topic }}
           </div>
-        </div>
+        </li>
+      </ul>
+      <ul class="separate outline-detail list-unstyled">
+        <li>
+          <div class="outline-title image-title">Image</div>
+        </li>
+        <li>
+          <div class="outline-title">File name</div>
+          <div>{{ task.info.filename }}</div>
+        </li>
+        <li>
+          <div class="outline-title">Created by</div>
+          <div>{{ task.info.created_by }}</div>
+        </li>
+        <li>
+          <div class="outline-title">Total Usage</div>
+          <div>{{ task.info.total_usage }}</div>
+        </li>
+      </ul>
+      <div class="separate outline-detail">
+        <div class="text-uppercase outline-title">status - <span class="live-title">{{ task.info.status }}</span></div>
       </div>
-    </div>
-  </div>
-  <div class="posts-detail pull-left">
-    <h4>Post Details</h4>
-    <ul class="separate outline-detail list-unstyled">
-      <li>
-        <div class="outline-title live-title text-uppercase">live</div>
-        <div>Published on Wednesday 4/6 at 8:00am</div>
-      </li>
-      <li>
-        <div class="outline-title text-uppercase">copy</div>
-        <div>Nothing says launch party like macaroons! If you're in LA stop by and check out new headphones.
-          <a class="outline-hashtag" target="_blank">#echolaunch</a>
-        </div>
-      </li>
-      <li>
-        <div class="outline-title text-uppercase">link</div>
-        <div>
-          <a href="#">bitly.com/echolaunch156948321</a>
-        </div>
-      </li>
-      <li>
-        <div class="outline-title text-uppercase">topic</div>
-        <div>
-          <i class="fa fa-circle" aria-hidden="true"></i> Speakers
-        </div>
-      </li>
-    </ul>
-    <ul class="separate outline-detail list-unstyled">
-      <li>
-        <div class="outline-title image-title">Image</div>
-      </li>
-      <li>
-        <div class="outline-title">File name</div>
-        <div>1569481321.jpg</div>
-      </li>
-      <li>
-        <div class="outline-title">Created by</div>
-        <div>Alex Smith - via Photographer</div>
-      </li>
-      <li>
-        <div class="outline-title">Total Usage</div>
-        <div>2 (last used November 13, 2015)</div>
-      </li>
-    </ul>
-    <div class="separate outline-detail">
-      <div class="text-uppercase outline-title">status - <span class="live-title">approved on 4/3</span></div>
-    </div>
-    <div class="separate outline-detail">
-      <button href="#" class="text-uppercase edit-post">edit post</button>
+      <div class="separate outline-detail">
+        <button href="#" class="text-uppercase edit-post">edit post</button>
+      </div>
     </div>
   </div>
 </div>
