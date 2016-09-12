@@ -90,106 +90,104 @@
         <div class="fc-calendar-container" calendario-directive selected-month="selectedMonth" selected-date="selectedDate" get-tasks-by-date="getTasksByDate(date)"></div>
       </div>
     </div>
-    <div class="separate task-list">
+    <div class="clearfix separate task-list">
       <div class="col-xs-12">
         <h4 class="text-uppercase">today task</h4>
         <ul class="list-unstyled">
-          <a class="media task clearfix" ng-repeat="task in tasksByDate.tasks" ng-class="{ 'active': $first }" ng-href="#/tasks/{{ task.id }}">
+          <a class="media task clearfix" ng-repeat="user in tasksByDate.users">
             <div class="media-left">
-              <img class="media-object img-responsive" ng-src="{{ ::task.user.avatar }}" alt="{{ ::task.user.fullname }}">
+              <img class="media-object img-responsive" ng-src="{{ ::user.avatar }}" alt="{{ ::user.fullname }}">
             </div>
             <div class="media-body">
-              <div> {{ ::task.user.fullname }}</div>
+              <div> {{ ::user.fullname }}</div>
               <div class="task-status">
-                <b>{{ ::task.user.task_completed }}</b>
+                <b>{{ ::user.task_completed }}</b>
               </div>
-              <div>{{ ::task.user.comment }}</div>
+              <div>{{ ::user.comment }}</div>
             </div>
           </a>
         </ul>
       </div>
     </div>
   </div>
-  <div class="pull-left posts-wrapper" ng-repeat="task in tasksByDate.tasks">
-    <div class="posts pull-left">
-      <div class="post" ng-repeat="post in task.posts">
-        <div class="timeline">
-        </div>
-        <div class="start-time">{{ ::post.starting_time_short }}</div>
-        <div class="post-content-wrapper">
-          <div class="post-content" ng-repeat="post_item in post.post_items">
-            <div class="post-title clearfix">
-              <div class="pull-left">
-                <div>
-                  <b>{{ ::post_item.title }}</b>
-                </div>
-                <div>{{ ::post_item.status }}</div>
+  <div class="pull-left posts">
+    <div class="post" ng-repeat="post in tasksByDate.posts">
+      <div class="timeline">
+      </div>
+      <div class="start-time">{{ ::post.starting_time_short }}</div>
+      <div class="post-content-wrapper">
+        <div class="pull-left post-content" ng-repeat="post_item in post.post_items">
+          <div class="post-title clearfix">
+            <div class="pull-left">
+              <div>
+                <b>{{ ::post_item.title }}</b>
               </div>
-              <div class="pull-right">
-                <div>
-                  <b>{{ ::post.starting_time }}</b>
-                </div>
-                <div class="post-source">
-                  <i class="fa {{ post_item.source === 'twitter' ? 'fa-twitter': 'fa-instagram' }}"></i>
-                </div>
+              <div>{{ ::post_item.status }}</div>
+            </div>
+            <div class="pull-right">
+              <div>
+                <b>{{ ::post.starting_time }}</b>
+              </div>
+              <div class="post-source">
+                <i class="fa {{ post_item.source === 'twitter' ? 'fa-twitter': 'fa-instagram' }}"></i>
               </div>
             </div>
-            <div>
-              <img class="img-responsive" ng-src="{{ ::post_item.image }}" alt="{{ ::task.user.fullname }} post">
-            </div>
+          </div>
+          <div>
+            <img class="img-responsive" ng-src="{{ ::post_item.image }}" alt="{{ ::task.user.fullname }} post">
           </div>
         </div>
       </div>
     </div>
-    <div class="posts-detail pull-left">
-      <h4>Post Details</h4>
-      <ul class="separate outline-detail list-unstyled">
-        <li>
-          <div class="outline-title live-title text-uppercase">live</div>
-          <div>{{ task.info.live }}</div>
-        </li>
-        <li>
-          <div class="outline-title text-uppercase">copy</div>
-          <div>{{ task.info.copy }}
-            <a class="outline-hashtag" target="_blank">{{ task.infor.hashtag }}</a>
-          </div>
-        </li>
-        <li>
-          <div class="outline-title text-uppercase">link</div>
-          <div>
-            <a href="#">{{ task.info.link }}</a>
-          </div>
-        </li>
-        <li>
-          <div class="outline-title text-uppercase">topic</div>
-          <div>
-            <i class="fa fa-circle" aria-hidden="true"></i> {{ task.info.topic }}
-          </div>
-        </li>
-      </ul>
-      <ul class="separate outline-detail list-unstyled">
-        <li>
-          <div class="outline-title image-title">Image</div>
-        </li>
-        <li>
-          <div class="outline-title">File name</div>
-          <div>{{ task.info.filename }}</div>
-        </li>
-        <li>
-          <div class="outline-title">Created by</div>
-          <div>{{ task.info.created_by }}</div>
-        </li>
-        <li>
-          <div class="outline-title">Total Usage</div>
-          <div>{{ task.info.total_usage }}</div>
-        </li>
-      </ul>
-      <div class="separate outline-detail">
-        <div class="text-uppercase outline-title">status - <span class="live-title">{{ task.info.status }}</span></div>
-      </div>
-      <div class="separate outline-detail">
-        <button href="#" class="text-uppercase edit-post">edit post</button>
-      </div>
+  </div>
+  <div class="pull-left posts-detail">
+    <h4>Post Details</h4>
+    <ul class="separate outline-detail list-unstyled">
+      <li>
+        <div class="outline-title live-title text-uppercase">live</div>
+        <div>{{ tasksByDate.info.live }}</div>
+      </li>
+      <li>
+        <div class="outline-title text-uppercase">copy</div>
+        <div>{{ tasksByDate.info.copy }}
+          <a class="outline-hashtag" target="_blank">{{ tasksByDate.info.hashtag }}</a>
+        </div>
+      </li>
+      <li>
+        <div class="outline-title text-uppercase">link</div>
+        <div>
+          <a href="#">{{ tasksByDate.info.link }}</a>
+        </div>
+      </li>
+      <li>
+        <div class="outline-title text-uppercase">topic</div>
+        <div>
+          <i class="fa fa-circle" aria-hidden="true"></i> {{ tasksByDate.info.topic }}
+        </div>
+      </li>
+    </ul>
+    <ul class="separate outline-detail list-unstyled">
+      <li>
+        <div class="outline-title image-title">Image</div>
+      </li>
+      <li>
+        <div class="outline-title">File name</div>
+        <div>{{ tasksByDate.info.filename }}</div>
+      </li>
+      <li>
+        <div class="outline-title">Created by</div>
+        <div>{{ tasksByDate.info.created_by }}</div>
+      </li>
+      <li>
+        <div class="outline-title">Total Usage</div>
+        <div>{{ tasksByDate.info.total_usage }}</div>
+      </li>
+    </ul>
+    <div class="separate outline-detail">
+      <div class="text-uppercase outline-title">status - <span class="live-title">{{ tasksByDate.info.status }}</span></div>
+    </div>
+    <div class="separate outline-detail">
+      <button href="#" class="text-uppercase edit-post">edit post</button>
     </div>
   </div>
 </div>
