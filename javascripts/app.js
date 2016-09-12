@@ -1,12 +1,12 @@
-'use strict';
-
 (function(angular) {
+  'use strict';
+
   angular
     .module('frontendTestApp', [
       'ngResource',
       'ngRoute',
       'LocalStorageModule',
-      // 'ngMockE2E'
+      'ngMockE2E'
     ])
     .config(['localStorageServiceProvider',
       function(localStorageServiceProvider) {
@@ -16,13 +16,24 @@
     .config(['$routeProvider',
       function($routeProvider) {
         $routeProvider
-          .when('/', {
+          .when('/dates', {
+            controller: 'homeController',
+            templateUrl: 'views/home.html'
+          })
+          .when('/dates/:dateId', {
+            controller: 'homeController',
+            templateUrl: 'views/home.html'
+          })
+          .when('/tasks/:id', {
             controller: 'homeController',
             templateUrl: 'views/home.html'
           })
           .otherwise({
-            redirectTo: '/'
+            redirectTo: '/tasks/1'
           });
       }
     ]);
 })(angular);
+
+/// home ~ /task_id: first
+/dates/:dateId/tasks/:taskId
