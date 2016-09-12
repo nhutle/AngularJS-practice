@@ -151,7 +151,7 @@ gulp.task('default', ['sass', 'lint', 'scripts'], function() {
 
   gulp.watch('javascripts/**/*.*', ['lint', 'scripts']);
   gulp.watch('styles/**/*.*', ['sass']);
-  gulp.watch('*.html').on('change', browserSync.reload);
+  gulp.watch(['*.html', 'views/*.html']).on('change', browserSync.reload);
 });
 
 // Build task
