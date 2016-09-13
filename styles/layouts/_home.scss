@@ -1,9 +1,12 @@
 @media only screen and (min-width: 320px) {
   .calendar-section {
-    width: 20%;
-    border-right: 1px solid $border;
+    @extend .separate;
+    // border-bottom: 1px solid $border; 992
+    // width: 20%; 992
+    // border-right: 1px solid $border; 992
   }
   .calendar-picker {
+    @extend .separate;
     .fc-calendar-container {
       height: 200px;
       padding: 0;
@@ -59,10 +62,15 @@
     }
   }
   .task-list {
-    margin-left: -15px;
+
+    // border-bottom: 1px solid $border;
+    padding: 10px 0;
     h4 {
       font-weight: bold;
       font-size: 14px;
+    }
+    ul {
+      margin-bottom: 0;
     }
   }
   .task {
@@ -89,13 +97,19 @@
     color: #92c86e;
   }
   .posts {
-    width: 45%;
-    padding: 20px;
+    @extend .separate;
+    // padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border;
+    // width: 45%;
+    // padding: 20px;
   }
   .post {
     display: table;
     width: 100%;
     position: relative;
+    // border-bottom: 1px solid $border;
     &:nth-of-type(2n+1) .post-content {
       border-top-color: #9cc2cf;
     }
@@ -110,7 +124,8 @@
     }
   }
   .timeline {
-    width: 7%;
+    // width: 7%;
+    width: 8%;
     border-left: 1px solid $border;
   }
   .start-time {
@@ -119,7 +134,8 @@
     left: -10px;
     background-color: #fff;
     z-index: 9999;
-    height: 30px;
+    // height: 30px;
+    height: 25px;
     font-size: 12px;
   }
   .post-content {
@@ -163,15 +179,27 @@
     }
   }
   .posts-detail {
-    width: 35%;
-    padding: 10px 20px;
-    border-left: 1px solid $border;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    // width: 35%;
+    // padding: 10px 20px;
+    // border-left: 1px solid $border;
     h4 {
       font-weight: normal;
     }
+    ul {
+      margin-bottom: 0;
+    }
   }
   .outline-detail {
+    @extend .separate;
     padding: 15px 0;
+    &:first-of-type {
+      border-top: 1px solid $border;
+    }
+    &:last-of-type {
+      border-width: 0;
+    }
     li + li {
       padding-top: 10px;
     }

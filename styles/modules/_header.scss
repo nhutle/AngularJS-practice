@@ -1,59 +1,82 @@
 @media only screen and (min-width: 320px) {
   .main-nav {
+    @extend .separate;
     background-color: $white;
-    border-top-width: 0;
-    border-left-width: 0;
-    border-right-width: 0;
+    // border-top-width: 0;
+    // border-left-width: 0;
+    // border-right-width: 0;
+    border-width: 0;
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 0;
     @include border-radius(0);
     .navbar-brand {
-      font-size: 16px;
+      // font-size: 16px;992
+      font-size: 14px;
     }
     .navbar-right {
       font-size: 17px;
+      display: none;
     }
   }
   .campaign {
-    border-right: 1px solid $border;
+    // border-right: 1px solid $border;992
     i {
       border: 2px solid;
       padding: 2px 3px;
-      font-size: 10px;
-      top: -2px;
+      // font-size: 10px;
+      font-size: 6px;
+      // top: -2px;
+      top: -3px;
       position: relative;
       @include border-radius(50%);
     }
   }
   .nav-setting {
-    border-left: 1px solid $border;
+    // display: none;
+    // border-left: 1px solid $border; 992
   }
   .main-navbar {
-    text-align: center;
-  }
-  .main-navigation {
-    float: none;
-    display: inline-block;
-    font-size: 16px;
-    li {
-      float: none;
-      display: inline-block;
-      &.active a {
-        color: #f26a2a !important;
-        border-bottom: 2px solid #f26a2a;
-        padding-bottom: 13px;
-        background-color: $white !important;
+    padding: 0;
+    .navbar-nav {
+      text-align: center;
+      font-size: 14px;
+      margin: 0;
+      > li {
+        // float: none; 992
+        display: inline-block;
+        > a {
+          padding: 10px 7px;
+        }
+        &.active a {
+          color: #f26a2a !important;
+          border-bottom: 2px solid #f26a2a;
+          // padding-bottom: 13px; 992
+          padding-bottom: 8px;
+          background-color: $white !important;
+        }
       }
     }
+    // text-align: center;
   }
   .date-indicator {
-    text-transform: none;
-    font-weight: normal;
-    font-size: 18px;
-    a {
-      cursor: default;
+    // font-size: 18px;
+    .navbar-header {
+      float: left;
     }
+    .main-navbar {
+      float: right;
+      text-transform: none;
+      font-weight: normal;
+      .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      // font-size: 18px;
+    }
+    // a {
+    //   cursor: default;
+    // }
   }
   .today span {
     border: 1px solid $border;
