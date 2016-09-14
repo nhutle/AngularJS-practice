@@ -20,13 +20,13 @@
             months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
           $scope.selectedDate = [days[date.getDay()], months[date.getMonth()], date.getFullYear()].join(' ');
+          $scope.selectedMonth = [months[date.getMonth()], date.getFullYear()].join(' ');
           $scope.tasksByDate = data;
 
         }, function(message) {
           $log.error(message);
         });
 
-        // http://stackoverflow.com/questions/24143945/location-path-updates-after-the-second-click
         $scope.getTasksByDate = function(date) {
           $timeout(function() {
             $location.path('/dates/' + date);
