@@ -18,5 +18,10 @@
 3. Open ```localhost:3000``` to see the result.
 
 
-### Note: AngularJS without generator and ui-router and restangular also.
+### Next plan
+* Using angular generator for a better folder structure.
+* Using ui-router and restangular.
+* Modularize app to components: header, calendar, posts.
+
+
 
