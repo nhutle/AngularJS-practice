@@ -18,5 +18,5 @@
 3. Open ```localhost:3000``` to see the result.
 
 
-### Note: plain html, css and js for version 1, angularJS will show up in version 2.
+### Note: AngularJS without generator and ui-router and restangular also.
 
