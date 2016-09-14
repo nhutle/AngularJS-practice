@@ -3,3 +3,9 @@
     border-bottom: 1px solid $border;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .unseparate {
+    border-bottom-width: 0;
+  }
+}

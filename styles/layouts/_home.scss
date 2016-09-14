@@ -1,12 +1,8 @@
 @media only screen and (min-width: 320px) {
   .calendar-section {
     @extend .separate;
-    // border-bottom: 1px solid $border; 992
-    // width: 20%; 992
-    // border-right: 1px solid $border; 992
   }
   .calendar-picker {
-    @extend .separate;
     .fc-calendar-container {
       height: 200px;
       padding: 0;
@@ -62,8 +58,7 @@
     }
   }
   .task-list {
-
-    // border-bottom: 1px solid $border;
+    border-top: 1px solid $border;
     padding: 10px 0;
     h4 {
       font-weight: bold;
@@ -98,18 +93,13 @@
   }
   .posts {
     @extend .separate;
-    // padding: 20px 0;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid $border;
-    // width: 45%;
-    // padding: 20px;
   }
   .post {
     display: table;
     width: 100%;
     position: relative;
-    // border-bottom: 1px solid $border;
     &:nth-of-type(2n+1) .post-content {
       border-top-color: #9cc2cf;
     }
@@ -124,7 +114,6 @@
     }
   }
   .timeline {
-    // width: 7%;
     width: 8%;
     border-left: 1px solid $border;
   }
@@ -132,9 +121,8 @@
     position: absolute;
     top: -10px;
     left: -10px;
-    background-color: #fff;
+    background-color: $white;
     z-index: 9999;
-    // height: 30px;
     height: 25px;
     font-size: 12px;
   }
@@ -142,28 +130,6 @@
     border-style: solid;
     border-color: $border;
     border-width: 3px 1px 1px 1px;
-    /* one item */
-    &:nth-child(1):nth-last-child(1) {
-      width: 100%;
-    }
-    /* two items */
-    &:nth-child(1):nth-last-child(2),
-    &:nth-child(2):nth-last-child(1) {
-      width: 50%;
-    }
-    /* three items */
-    &:nth-child(1):nth-last-child(3),
-    &:nth-child(2):nth-last-child(2),
-    &:nth-child(3):nth-last-child(1) {
-      width: 33.3333%;
-    }
-    /* four items */
-    &:nth-child(1):nth-last-child(4),
-    &:nth-child(2):nth-last-child(3),
-    &:nth-child(3):nth-last-child(2),
-    &:nth-child(4):nth-last-child(1) {
-      width: 25%;
-    }
     .img-responsive {
       margin: 0 auto;
     }
@@ -181,9 +147,6 @@
   .posts-detail {
     padding-top: 10px;
     padding-bottom: 10px;
-    // width: 35%;
-    // padding: 10px 20px;
-    // border-left: 1px solid $border;
     h4 {
       font-weight: normal;
     }
@@ -231,12 +194,69 @@
   }
 }
 
-@media only screen and (min-width: 480px) {}
+@media only screen and (min-width: 480px) {
+  .post-content {
+    /* one item */
+    &:nth-child(1):nth-last-child(1) {
+      width: 100%;
+    }
+    /* two items */
+    &:nth-child(1):nth-last-child(2),
+    &:nth-child(2):nth-last-child(1) {
+      width: 50%;
+    }
+    /* three items */
+    &:nth-child(1):nth-last-child(3),
+    &:nth-child(2):nth-last-child(2),
+    &:nth-child(3):nth-last-child(1) {
+      width: 33.3333%;
+    }
+    /* four items */
+    &:nth-child(1):nth-last-child(4),
+    &:nth-child(2):nth-last-child(3),
+    &:nth-child(3):nth-last-child(2),
+    &:nth-child(4):nth-last-child(1) {
+      width: 25%;
+    }
+  }
+}
 
-@media only screen and (min-width: 640px) {}
+@media only screen and (min-width: 768px) {
+  .calendar-section {
+    @extend .unseparate;
+    width: 25%;
+  }
+  .posts {
+    @extend .unseparate;
+    border-left: 1px solid $border;
+    border-right: 1px solid $border;
+    width: 45%;
+  }
+  .posts-detail {
+    @extend .unseparate;
+    width: 30%;
+  }
+  .task-list {
+    margin: 0 -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .timeline {
+    width: 6%;
+  }
+}
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 992px) {
+  .calendar-section {
+    width: 20%;
+  }
+  .posts-detail {
+    width: 35%;
+  }
+}
 
-@media only screen and (min-width: 992px) {}
-
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+  .timeline {
+    width: 5%;
+  }
+}

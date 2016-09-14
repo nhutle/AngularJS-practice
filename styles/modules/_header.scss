@@ -2,39 +2,24 @@
   .main-nav {
     @extend .separate;
     background-color: $white;
-    // border-top-width: 0;
-    // border-left-width: 0;
-    // border-right-width: 0;
-    border-width: 0;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 0;
     @include border-radius(0);
     .navbar-brand {
-      // font-size: 16px;992
       font-size: 14px;
     }
-    .navbar-right {
-      font-size: 17px;
-      display: none;
-    }
   }
-  .campaign {
-    // border-right: 1px solid $border;992
-    i {
-      border: 2px solid;
-      padding: 2px 3px;
-      // font-size: 10px;
-      font-size: 6px;
-      // top: -2px;
-      top: -3px;
-      position: relative;
-      @include border-radius(50%);
-    }
-  }
-  .nav-setting {
-    // display: none;
-    // border-left: 1px solid $border; 992
+  .campaign i {
+    border: 2px solid;
+    padding: 2px 3px;
+    font-size: 6px;
+    top: -3px;
+    position: relative;
+    @include border-radius(50%);
   }
   .main-navbar {
     padding: 0;
@@ -43,24 +28,27 @@
       font-size: 14px;
       margin: 0;
       > li {
-        // float: none; 992
         display: inline-block;
         > a {
           padding: 10px 7px;
         }
         &.active a {
-          color: #f26a2a !important;
+          color: #f26a2a;
           border-bottom: 2px solid #f26a2a;
-          // padding-bottom: 13px; 992
           padding-bottom: 8px;
-          background-color: $white !important;
+          background-color: $white;
+          &:hover {
+            color: #f26a2a;
+            background-color: $white;
+          }
         }
       }
     }
-    // text-align: center;
+    .navbar-right {
+      display: none;
+    }
   }
   .date-indicator {
-    // font-size: 18px;
     .navbar-header {
       float: left;
     }
@@ -68,15 +56,11 @@
       float: right;
       text-transform: none;
       font-weight: normal;
-      .navbar-nav>li>a {
+      .navbar-nav > li >a {
         padding-top: 15px;
         padding-bottom: 15px;
       }
-      // font-size: 18px;
     }
-    // a {
-    //   cursor: default;
-    // }
   }
   .today span {
     border: 1px solid $border;
@@ -85,12 +69,56 @@
   }
 }
 
-@media only screen and (min-width: 480px) {}
+@media only screen and (min-width: 768px) {
+  .main-navbar {
+    text-align: center;
+    .navbar-nav {
+      float: none;
+      display: inline-block;
+      > li {
+        float: none;
+        &.active a {
+          padding-bottom: 13px;
+        }
+        a {
+          padding: 15px 10px;
+        }
+      }
+    }
+    .navbar-right {
+      display: block;
+      border-left: 1px solid $border;
+      font-size: 17px;
+      &.filter-gear {
+        border-width: 0;
+      }
+    }
+  }
+  .date-indicator {
+    .navbar-header {
+      float: left;
+    }
+    .main-navbar {
+      float: none;
+    }
+  }
+  .campaign {
+    border-right: 1px solid $border;
+  }
+}
 
-@media only screen and (min-width: 640px) {}
-
-@media only screen and (min-width: 768px) {}
-
-@media only screen and (min-width: 992px) {}
-
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 992px) {
+  .main-nav {
+    .navbar-brand,
+    .navbar-nav {
+      font-size: 16px;
+    }
+  }
+  .date-indicator {
+    font-size: 18px;
+  }
+  .campaign i {
+    font-size: 10px;
+    top: -2px;
+  }
+}
