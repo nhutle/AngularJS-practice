@@ -222,18 +222,27 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .calendar-section {
+  .content-wrapper {
+    display: table;
+    border-collapse: collapse;
+  }
+  .calendar-section,
+  .posts,
+  .posts-detail {
     @extend .unseparate;
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
+  .calendar-section {
     width: 25%;
   }
   .posts {
-    @extend .unseparate;
     border-left: 1px solid $border;
     border-right: 1px solid $border;
     width: 45%;
   }
   .posts-detail {
-    @extend .unseparate;
     width: 30%;
   }
   .task-list {
