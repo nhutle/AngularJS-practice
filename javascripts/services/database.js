@@ -7,6 +7,11 @@
       '$log',
       'localStorageService',
       function($log, localStorageService) {
+        /**
+         * generate yesterday, today, and tomorrow
+         * @param  {String} dateType
+         * @return {String}          [date in yyyy-mm-dd format]
+         */
         function getDate(dateType) {
           var d = new Date();
 
@@ -24,6 +29,10 @@
           return d.toISOString().slice(0, 10);
         }
 
+        /**
+         * initialize mock data
+         * @return {[type]} [description]
+         */
         function initializeData() {
           var tasksByDates = [{
             'date_id': getDate('today'),
@@ -155,10 +164,16 @@
           localStorageService.set('tasksByDates', tasksByDates);
         }
 
+        // initialize data
         if (!localStorageService.get('tasksByDates')) {
           initializeData();
         }
 
+        /**
+         * get task by specific date
+         * @param  {String} dateId
+         * @return {Object}        [task by date]
+         */
         function getTasksByDate(dateId) {
           var tasksByDates = localStorageService.get('tasksByDates'),
             result = {};
